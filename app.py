@@ -8,7 +8,7 @@ import parsedatetime.parsedatetime as pdt
 from time import mktime
 from datetime import datetime
 
-app = Flask(__name__)
+app = Flask('excuse-timer')
 app.config['DEBUG'] = True
 mongo = PyMongo(app)
 p = pdt.Calendar()
