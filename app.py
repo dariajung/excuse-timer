@@ -24,7 +24,9 @@ def receive_msg():
     print request.args
     print message
     print number
-    dt = p.parse(message)
+    (dt, hello) = p.parse(message)
+    print dt
+    print hello
     dt = datetime.fromtimestamp(mktime(dt))
     mongo.db.messages.insert({"from": number, "time": dt})
     return "Hello"
