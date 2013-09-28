@@ -21,8 +21,8 @@ def index():
 def receive_msg():
     number = request.args.get('From', None)
     message = request.args.get('Body', None)
-    datetime = p.parse("message")
-    dt = datetime.fromtimestamp(mktime(datetime))
+    dt = p.parse("message")
+    dt = datetime.fromtimestamp(mktime(dt))
     mongo.db.messages.insert({"from": number, "time": dt})
     return "Hello"
 
