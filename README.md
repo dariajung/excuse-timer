@@ -8,10 +8,9 @@ Python, Flask, MongoDB, Twilio
 To Start
 ---------
 
-`$ virtualenv ENV`
-
-`$ cd ENV`
-
-`$ source bin/activate`
-
-`$ pip install -r requirements.txt`
+```
+$ virtualenv ENV
+$ cd ENV
+$ source bin/activate
+$ pip install -r requirements.txt
+```
