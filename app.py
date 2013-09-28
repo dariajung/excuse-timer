@@ -5,6 +5,8 @@ from twilio.rest import TwilioRestClient
 from flask.ext.pymongo import PyMongo
 from flask import render_template
 import parsedatetime.parsedatetime as pdt
+from time import mktime
+from datetime import datetime
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -20,8 +22,9 @@ def receive_msg():
     number = request.args.get('From', None)
     message = request.args.get('Body', None)
     datetime = p.parse("message")
-    mongo.db.messages.insert({"from": number, "time": datetime})
+    dt = datetime.fromtimestamp(mktime(datetime))
+    mongo.db.messages.insert({"from": number, "time": dt})
     return "Hello"
 
 if __name__ == "__main__":
-	app.run()
+	app.run(host='0.0.0.0')
