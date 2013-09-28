@@ -20,7 +20,7 @@ def receive_msg():
     number = request.args.get('From', None)
     message = request.args.get('Body', None)
     datetime = p.parse("message")
-    
+    mongo.db.messages.insert({"from": number, "time": datetime})
     return "Hello"
 
 if __name__ == "__main__":
