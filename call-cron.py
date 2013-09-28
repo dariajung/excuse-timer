@@ -8,6 +8,6 @@ messages = client['excuse-timer'].messages
 client = TwilioRestClient(account_id, token_id)
 
 for message in messages.find({"time":{"$lt":datetime.now()}}):
-    call = client.calls.create(to=message['from'], from_='+14242299993', url='http://excuseti.me/end_call')
+    call = client.calls.create(to=message['from'], from_='+14242299993', url='http://demo.twilio.com/welcome/voice/')
     print call.sid
     print message
