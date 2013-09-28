@@ -4,6 +4,8 @@ from twilio.rest import TwilioRestClient
 from flask.ext.pymongo import PyMongo
 
 app = Flask(__name__)
+app.config['DEBUG'] = True
+mongo = PyMongo(app)
 
 @app.route("/")
 def hello():
