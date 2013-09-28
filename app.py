@@ -4,13 +4,12 @@ from credentials import account_id, token_id
 from twilio.rest import TwilioRestClient
 from flask.ext.pymongo import PyMongo
 from flask import render_template
-import parsedatetime as pdt
+import parsedatetime.parsedatetime as pdt
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
 mongo = PyMongo(app)
-c = pdt.Constants()
-p = pdt.Calendar(c)
+p = pdt.Calendar()
 
 @app.route("/")
 def index():
