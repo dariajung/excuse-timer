@@ -17,11 +17,14 @@ p = pdt.Calendar()
 def index():
         return render_template('index.html')
 
-@app.route('/msg', methods=['POST'])
+@app.route('/msg')
 def receive_msg():
     number = request.args.get('From', None)
     message = request.args.get('Body', None)
-    dt = p.parse("message")
+    print request.args
+    print message
+    print number
+    dt = p.parse(message)
     dt = datetime.fromtimestamp(mktime(dt))
     mongo.db.messages.insert({"from": number, "time": dt})
     return "Hello"
