@@ -36,3 +36,6 @@ nosetests.xml
 
 # Virtual Environment
 ENV
+
+#Credentials
+credentials.py
