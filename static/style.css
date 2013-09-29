@@ -8,7 +8,6 @@ body, h1 {
 	width: 100%;
 	min-height: 500px;
 	border-bottom: 20px #66B6CD solid;
-	padding: 0px 20px 50px 20px;
 }
 .landing-text {
 	color: #fff;
@@ -24,6 +23,7 @@ body, h1 {
 }
 
 a {
+	text-decoration: none;
 	text-transform: uppercase;
 	color: #fff;
 	-webkit-transition: all 0.5s ease-in-out;
@@ -76,18 +76,21 @@ a:hover {
 }
 
 .instructions .examples {
+	margin: 0px auto;
 	text-align: center;
 	color: #084759;
 	background: #66B6CD;
-	padding: 10px;
+	padding: 10px 0px 25px 0px;
 	border-radius: 5px;
 	font-size: 16px;
 }
 .instructions .examples ul {
 	list-style: none;
+	padding: 0;
 }
 
 h6 {
+	margin: 20px;
 	color: #084759;
 	font-family: 'Raleway', sans-serif;
 	font-weight: normal;
@@ -99,7 +102,7 @@ h6 {
 }
 
 .footer {
-	padding-top: 20px;
+	padding-top: 50px;
 	min-height: 100px;
 	background: #084759;
 }
