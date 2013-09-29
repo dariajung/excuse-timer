@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import request
+from flask import Response
 from credentials import account_id, token_id
 from twilio.rest import TwilioRestClient
 from flask.ext.pymongo import PyMongo
@@ -30,6 +31,13 @@ def receive_msg():
     dt = datetime.fromtimestamp(mktime(dt))
     mongo.db.messages.insert({"from": number, "time": dt})
     return "Hello"
+
+@app.route('/twilio')
+def call_msg():
+    call_message = """<?xml version="1.0" encoding="UTF-8"?>
+<Response><Say voice="alice">This is your Excuse Time call.</Say></Response>
+"""
+    return Response(call_message, mimetype='text/xml')
 
 if __name__ == "__main__":
 	app.run(host='0.0.0.0')
