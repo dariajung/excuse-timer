@@ -76,6 +76,25 @@ a:hover {
 	text-align: left;
 }
 
+.instructions .examples {
+	text-align: center;
+	color: #084759;
+	background: #66B6CD;
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 16px;
+}
+.instructions .examples ul {
+	list-style: none;
+}
+
+h6 {
+	color: #084759;
+	font-family: 'Raleway', sans-serif;
+	font-weight: normal;
+	font-size: 20px;
+	text-transform: uppercase;
+}
 .list-container {
 	margin: 0px 50px;
 }
