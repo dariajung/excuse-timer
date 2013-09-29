@@ -1,5 +1,7 @@
 body, h1 {
 	font-family: 'Raleway', sans-serif;
+	font-weight: 100;
+	margin: 0;
 }
 .landing {
 	background: #084759;
@@ -11,12 +13,60 @@ body, h1 {
 	color: #fff;
 	margin: 0 auto;
 	text-align: center;
+	padding-top: 50px;
 }
 .landing-text h1 {
+	margin: 50px 0px;
 	color: #fff;
-	margin: 0;
+	font-weight: 100;
+	font-size: 60px;
 }
 
-.landing-text i {
-	font-size: 150px;
+.landing-text a {
+	color: #fff;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;;
+}
+
+.landing-text a:hover {
+	color: #1d83a4;
+}
+
+.landing-text .icon-user, .icon-mobile-phone, .icon-time, .icon-smile {
+	font-size: 100px;
+}
+
+.connection {
+	display: inline-block;
+	margin: 0px 50px;
+	vertical-align: middle;
+	padding-bottom: 50px;
+	font-size: 30px;
+}
+
+.landing-text p {
+	font-weight: 100;
+	font-size: 20px;
+}
+
+.instructions {
+	text-align: center;
+	height: 400px;
+	background: url('../static/img/grilled.png');
+}
+
+.instructions h1 {
+	font-size: 70px;
+	padding: 30px;
+	color: #084759;
+}
+
+.instructions ol {
+	font-weight: normal;
+	margin: 0 auto;
+	width: 595px;
+	font-size: 20px;
+	text-align: left;
 }
