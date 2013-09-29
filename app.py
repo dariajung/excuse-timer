@@ -23,15 +23,9 @@ def index():
 def receive_msg():
     number = request.args.get('From', None)
     message = request.args.get('Body', None)
-    print request.args
-    print message
-    print number
     (dt, hello) = p.parse(message)
-    print dt
-    print hello
     dt = datetime.fromtimestamp(mktime(dt))
     mongo.db.messages.insert({"from": number, "time": dt})
-    return "Hello"
 
 @app.route('/ad', methods=['POST'])
 def save_ad():
@@ -44,26 +38,6 @@ def text_msg():
     ad = mongo.db.ad.find_one()
     resp.say("This is your Excuse Time call. " + ad['ad'])
 
-    return str(resp)
-
-@app.route('/twilio-record', methods=['GET', 'POST'])
-def call_msg():
-	resp = twilio.twiml.Response()
-	resp.say("Record your monkey howl after the tone.")
-	resp.record(maxLength="30", action="/handle-recording")
-
-	return str(resp)
-
-@app.route("/handle-recording", methods=['GET', 'POST'])
-def handle_recording():
-    """Play back the caller's recording."""
- 
-    recording_url = request.values.get("RecordingUrl", None)
- 
-    resp = twilio.twiml.Response()
-    resp.say("Thanks for recording a message. Listen to your recorded message.")
-    resp.play(recording_url)
-    resp.say("Goodbye.")
     return str(resp)
 
 if __name__ == "__main__":
