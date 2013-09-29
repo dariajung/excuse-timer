@@ -15,13 +15,6 @@ app.config['DEBUG'] = True
 mongo = PyMongo(app)
 p = pdt.Calendar()
 
-def get_price():
-    return mongo.db.ad.find().limit(1).sort('_id', -1)['price']
-
-@app.context_processor
-def inject_price():
-    return {'price': get_price()}
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -37,8 +30,7 @@ def receive_msg():
 @app.route('/ad', methods=['POST'])
 def save_ad():
     ad = request.form['ad']
-    price = get_price();
-    mongo.db.ad.insert({'ad': ad, 'price': price + 1})
+    mongo.db.ad.insert({'ad': ad})
 
 @app.route('/twilio', methods=['GET', 'POST'])
 def text_msg():
