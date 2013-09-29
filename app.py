@@ -15,10 +15,10 @@ app.config['DEBUG'] = True
 mongo = PyMongo(app)
 p = pdt.Calendar()
 
-@get_price():
+def get_price():
     return mongo.db.ad.find().limit(1).sort('_id', -1)['price']
 
-@app.context_processor()
+@app.context_processor
 def inject_price():
     return {'price': get_price()}
 
