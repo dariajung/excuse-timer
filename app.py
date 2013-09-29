@@ -34,10 +34,17 @@ def receive_msg():
     return "Hello"
 
 @app.route('/twilio', methods=['GET', 'POST'])
+def text_msg():
+    resp = twilio.twiml.Response()
+    resp.say("This is your Excuse Time call. Your ad here.")
+
+    return str(resp)
+
+@app.route('/twilio-record', methods=['GET', 'POST'])
 def call_msg():
 	resp = twilio.twiml.Response()
 	resp.say("Record your monkey howl after the tone.")
-	esp.record(maxLength="30", action="/handle-recording")
+	resp.record(maxLength="30", action="/handle-recording")
 
 	return str(resp)
 
