@@ -12,10 +12,10 @@ while True:
     for message in messages.find({"time":{"$lt":datetime.now()}}):
         try:
             call = client.calls.create(to=message['from'], from_='+14242299993', url='http://zencephalon.com:5000/twilio')
+            print call.sid
+            print message
         except:
             print "an error occurred"
         finally:
             messages.remove(message)
-        print call.sid
-        print message
     sleep(60)
