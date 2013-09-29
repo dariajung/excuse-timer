@@ -63,7 +63,19 @@
                 </ol>
             </div>
         </div>
+        <script>
+            function redit-to-venmo() {
+
+                window.location.replace("https://venmo.com/mettacode?txn=pay&amount={{price}}&note=for+ad+on+excusetime");
+            }
+        </script>
         <div class='ad'>
+            {{ price }}
+            <form>
+                <label>Your ad here:</label>
+                <input type='text' name='ad' id='a' placeholder="ex: I love hackNY!">
+                <input class='button' action='/ad' onclick="submit-redir-to-venmo();">
+            </form>
         </div>
         <div class='footer'>
             <p>Made for the <a target='_blank' href='http://hackny.org'>hackNY</a> fall 2013 hackathon.</p>
