@@ -33,10 +33,16 @@ def receive_msg():
     mongo.db.messages.insert({"from": number, "time": dt})
     return "Hello"
 
+@app.route('/ad', methods=['POST'])
+def save_ad():
+    ad = request.form['ad']
+    mongo.db.ad.insert({'ad': ad})
+
 @app.route('/twilio', methods=['GET', 'POST'])
 def text_msg():
     resp = twilio.twiml.Response()
-    resp.say("This is your Excuse Time call. Your ad here.")
+    ad = mongo.db.ad.find_one()
+    resp.say("This is your Excuse Time call. " + ad['ad'])
 
     return str(resp)
 
