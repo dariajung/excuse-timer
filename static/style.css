@@ -6,14 +6,15 @@ body, h1 {
 .landing {
 	background: #084759;
 	width: 100%;
-	min-height: 600px;
+	min-height: 500px;
 	border-bottom: 20px #66B6CD solid;
+	padding: 0px 20px 50px 20px;
 }
 .landing-text {
 	color: #fff;
 	margin: 0 auto;
 	text-align: center;
-	padding-top: 50px;
+	padding-top: 15px;
 }
 .landing-text h1 {
 	margin: 50px 0px;
@@ -53,8 +54,9 @@ body, h1 {
 
 .instructions {
 	text-align: center;
-	height: 400px;
+	min-height: 400px;
 	background: url('../static/img/grilled.png');
+	padding-bottom: 50px;
 }
 
 .instructions h1 {
@@ -66,7 +68,28 @@ body, h1 {
 .instructions ol {
 	font-weight: normal;
 	margin: 0 auto;
-	width: 595px;
+	padding: 0px 10px 10px 10px;
+	max-width: 615px;
 	font-size: 20px;
 	text-align: left;
+}
+
+.list-container {
+	margin: 0px 50px;
+}
+
+@media (max-width: 750px) { 
+	.steps {
+		margin-bottom: 20px;
+	}
+	.landing-text .icon-user, .icon-mobile-phone, .icon-time, .icon-smile {
+		font-size: 50px;
+	}
+	.connection {
+		display: inline-block;
+		margin: 0px 10px;
+		vertical-align: middle;
+		padding-bottom: 20px;
+		font-size: 10px;
+	}
 }
