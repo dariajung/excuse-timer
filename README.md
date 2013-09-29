@@ -1,4 +1,4 @@
-excuse-timer
+[excuse-timer](http://excuseti.me)
 ============
 
 Call yourself to get out of things.
