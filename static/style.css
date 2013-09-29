@@ -112,6 +112,9 @@ h6 {
 }
 
 @media (max-width: 750px) { 
+	.landing {
+		min-height: 400px;
+	}
 	.landing h1 {
 		font-size: 50px;
 	}
