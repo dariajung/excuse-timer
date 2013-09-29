@@ -1,3 +1,22 @@
-body {
+body, h1 {
 	font-family: 'Raleway', sans-serif;
+}
+.landing {
+	background: #084759;
+	width: 100%;
+	min-height: 600px;
+	border-bottom: 20px #66B6CD solid;
+}
+.landing-text {
+	color: #fff;
+	margin: 0 auto;
+	text-align: center;
+}
+.landing-text h1 {
+	color: #fff;
+	margin: 0;
+}
+
+.landing-text i {
+	font-size: 150px;
 }

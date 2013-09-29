@@ -8,6 +8,7 @@ from flask import render_template
 import parsedatetime.parsedatetime as pdt
 from time import mktime
 from datetime import datetime
+import twilio.twiml
 
 app = Flask('excuse-timer')
 app.config['DEBUG'] = True
@@ -32,12 +33,25 @@ def receive_msg():
     mongo.db.messages.insert({"from": number, "time": dt})
     return "Hello"
 
-@app.route('/twilio')
+@app.route('/twilio', methods=['GET', 'POST'])
 def call_msg():
-    call_message = """<?xml version="1.0" encoding="UTF-8"?>
-<Response><Say voice="alice">This is your Excuse Time call.</Say></Response>
-"""
-    return Response(call_message, mimetype='text/xml')
+	resp = twilio.twiml.Response()
+	resp.say("Record your monkey howl after the tone.")
+	esp.record(maxLength="30", action="/handle-recording")
+
+	return str(resp)
+
+@app.route("/handle-recording", methods=['GET', 'POST'])
+def handle_recording():
+    """Play back the caller's recording."""
+ 
+    recording_url = request.values.get("RecordingUrl", None)
+ 
+    resp = twilio.twiml.Response()
+    resp.say("Thanks for recording a message. Listen to your recorded message.")
+    resp.play(recording_url)
+    resp.say("Goodbye.")
+    return str(resp)
 
 if __name__ == "__main__":
 	app.run(host='0.0.0.0')
