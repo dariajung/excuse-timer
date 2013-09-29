@@ -93,6 +93,9 @@ a:hover {
 }
 
 @media (max-width: 750px) { 
+	.landing h1 {
+		font-size: 50px;
+	}
 	.steps {
 		margin-bottom: 20px;
 	}
