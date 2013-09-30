@@ -29,7 +29,7 @@ a {
 	-webkit-transition: all 0.5s ease-in-out;
 	-moz-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
-	transition: all 0.5s ease-in-out;;
+	transition: all 0.5s ease-in-out;
 }
 
 a:hover {
@@ -117,8 +117,11 @@ h6 {
 	.landing {
 		min-height: 400px;
 	}
+	.landing-text {
+		padding: 10px 25px;
+	}
 	.landing h1 {
-		font-size: 50px;
+		font-size: 40px;
 	}
 	.steps {
 		margin-bottom: 20px;
